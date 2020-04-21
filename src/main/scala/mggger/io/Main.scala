@@ -80,8 +80,6 @@ object Main {
     val tree = parser.stat()
 
     val walker = new RomanVisitor
-    walker.visit(tree)
-
-    println(converToRoman(walker.result))
+    println(converToRoman(walker.visit(tree)))
   }
 }

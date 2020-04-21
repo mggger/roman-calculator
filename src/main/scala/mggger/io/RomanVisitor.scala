@@ -4,8 +4,6 @@ import mggger.io.antlr.RomanParser
 
 class RomanVisitor extends RomanBaseVisitor[Int] {
 
-  var result: Int = _
-
   override def visitAdd(ctx: RomanParser.AddContext): Int =
     visit(ctx.expr(0)) + visit(ctx.expr(1))
 
@@ -34,8 +32,7 @@ class RomanVisitor extends RomanBaseVisitor[Int] {
   }
 
   override def visitStat(ctx: RomanParser.StatContext): Int = {
-    result = visit(ctx.expr())
-    result
+    visit(ctx.expr())
   }
 
   override def visitDigit(ctx: RomanParser.DigitContext): Int =
